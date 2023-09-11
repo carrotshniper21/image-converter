@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 import upload from "./services/FileUploadService";
@@ -9,7 +9,7 @@ const App: React.FC = () => {
   const [binaryData, setBinaryData] = useState<Uint8Array | null>(null);
   const [hexData, setHexData] = useState<string | null>(null);
 
-  const handleUpload = () => {
+  const handleUpload = useCallback(() => {
     if (selectedFile) {
       upload(selectedFile, (progressEvent: ProgressEvent) => {
         const percentCompleted = Math.round((progressEvent.loaded / progressEvent.total) * 100);
@@ -23,13 +23,13 @@ const App: React.FC = () => {
           console.error("File upload error:", error);
         });
     }
-  };
+  }, [selectedFile]);
 
   useEffect(() => {
     if (selectedFile) {
       handleUpload();
     }
-  }, [selectedFile]);
+  }, [selectedFile, handleUpload]);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
