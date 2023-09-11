@@ -9,20 +9,6 @@ const App: React.FC = () => {
   const [binaryData, setBinaryData] = useState<Uint8Array | null>(null);
   const [hexData, setHexData] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (selectedFile) {
-      handleUpload();
-    }
-  }, [selectedFile]);
-
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files[0]) {
-      setSelectedFile(event.target.files[0]);
-      setBinaryData(null);
-      setHexData(null);
-    }
-  };
-
   const handleUpload = () => {
     if (selectedFile) {
       upload(selectedFile, (progressEvent: ProgressEvent) => {
@@ -36,6 +22,20 @@ const App: React.FC = () => {
         .catch((error) => {
           console.error("File upload error:", error);
         });
+    }
+  };
+
+  useEffect(() => {
+    if (selectedFile) {
+      handleUpload();
+    }
+  }, [selectedFile]);
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      setSelectedFile(event.target.files[0]);
+      setBinaryData(null);
+      setHexData(null);
     }
   };
 
@@ -61,7 +61,7 @@ const App: React.FC = () => {
         <label className="drop-container" id="dropcontainer">
           <span className="drop-title">Drop files here</span>
           or
-          <input id="fileupload" type="file" name="fileupload" onChange={handleFileChange} required/>
+          <input id="fileupload" type="file" name="fileupload" onChange={handleFileChange} required />
         </label>
         {binaryData && hexData && (
           <div>
