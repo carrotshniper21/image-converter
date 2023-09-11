@@ -1,6 +1,6 @@
 {
-  "homepage": "http://carrotshniper21.github.io/image-binary",
-  "name": "carrotshniper21.github.io",
+  "homepage": "http://carrotshniper21.github.io/image-converter",
+  "name": "image-converter",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,10 +23,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "export": "react-scripts build && some-export-command"
   },
   "eslintConfig": {
     "extends": [
