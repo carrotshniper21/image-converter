@@ -1,7 +1,8 @@
 {
-  "homepage": "http://carrotshniper21.github.io/image-converter",
   "name": "image-converter",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "A description of my package",
+  "homepage": "http://carrotshniper21.github.io/image-converter",
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
@@ -27,7 +28,7 @@
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
