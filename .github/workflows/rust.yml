@@ -17,4 +17,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build
-      run: cargo run --manifest-path image-binary/Cargo.toml --release
+      run: cargo build --manifest-path image-binary/Cargo.toml --release
+    - name: Run
+      run: cargo run

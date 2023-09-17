@@ -23,6 +23,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "image-run": "cargo run --manifest-path image-binary/Cargo.toml --release",
     "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
